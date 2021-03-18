@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 # Define the home view
 def splash(request):
-    return render(request, 'splash.html')
+    return render(request, 'products/dashboard.html')
 
 def products_index(request):
     return render(request, 'products/index.html')

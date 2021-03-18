@@ -10,20 +10,21 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<header class="navbar-fixed">
+<div class="navbar-fixed">
     <nav>
-        <div class="nav-wrapper green">
+        <div class="nav-wrapper green darken-2">
         <ul>
-            <li><a href="/" class="left brand-logo">&nbsp;&nbsp;LemonGiga</a></li>
+            <li><img class="responsive-image" width="59" height "59" src={% static 'images/logo.png' %}></li>
         </ul>
-        <ul class="right">
+        <ul class="left">
             <li><a href="/">Home</a></li>
             <li><a href="/products">All Product Reviews</a></li>
             <li><a href="/profile">Profile</a></li>
         </ul>
         </div>
+        </div>
     </nav>
-</header>
+</div>
 <main class="container">
     {% block content %}
     {% endblock %}
