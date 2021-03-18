@@ -23,4 +23,15 @@ class Gear(models.Model):
     description = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
+    def __str__(self):
+        return self.name
+
+class Comment(models.Model):
+    person = models.ForeignKey(Person, null=True, on_delete=models.SET_NULL)
+    gear = models.ForeignKey(Gear, null=True, on_delete=models.SET_NULL)
+    comment = models.CharField(max_length=200, null=True)
+
+    def __str__(self):
+        return self.comment
+
     
