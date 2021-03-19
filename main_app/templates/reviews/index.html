@@ -6,15 +6,15 @@
 <div class="row">
 {% for review in reviews %}
 {% if review.id != 4 %}
-<a href="/reviews/{{review.id}}">
+<a href="{% url 'detail' review.id %}">
 <div class="col s4">
 <div class="card">
 <div class="card-content">{{review.name}}</div>
 </div>
 </div>
 </a>
-{% elif review.name != 7%}
-<a href="/reviews/{{review.id}}">
+{% elif review.id != 7%}
+<a href="{% url 'detail' review.id %}">
 <div class="col s4">
 <div class="card">
 <div class="card-content">{{review.name}}</div>
@@ -24,7 +24,7 @@
 {% else %}
 </div
 <div class="row">
-<a href="/reviews/{{review.id}}">
+<a href="{% url 'detail' review.id %}">
 <div class="col s4">
 <div class="card">
 <div class="card-content">{{review.name}}</div>
