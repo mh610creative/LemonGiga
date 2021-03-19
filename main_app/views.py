@@ -40,4 +40,10 @@ def createComment(request):
     }
     return render(request, 'forms/comment_form.html', context)
 
+def register(request):
+    return HttpResponse('Register')
+
+def login(request):
+    return HttpResponse('Login')
+
 
