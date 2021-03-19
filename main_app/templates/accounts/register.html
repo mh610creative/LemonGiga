@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1>New User Registration</h1>
-
-<form method="POST" action="">
-{% csrf_token%}
-{{form.as_p}}
-<input class="btn btn-default" type="submit" name="Create User" value="Create User">
-</form>
-</br>
+<div class="justify-content center">
+    <h1>New User Registration</h1>
+</div>
+<div class="container">
+    <div class="card">
+        <div class="card-content">
+            <form method="POST" action="">
+            {% csrf_token%}
+            {{form.as_p}}
+            </br>
+            <input class="btn btn-default" type="submit" name="Create User" value="Create User">
+            </br>
+            </form>
+            
+        </div>
+    </div>
+</div>
 {% endblock %}

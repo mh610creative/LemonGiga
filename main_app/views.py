@@ -45,9 +45,10 @@ def register(request):
     if request.method == "POST":
         if form.is_valid():
             form.save()
-    return render(request, 'accounts/register.html', {'form': form})
+    return redirect('login')
 
 def login(request):
-    return HttpResponse('Login')
+    form = LoginForm(request.POST)
+    return render(request, 'accounts/login.html', {'form': form})
 
 
