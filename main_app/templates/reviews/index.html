@@ -4,27 +4,33 @@
 <h1>Products</h1>
 <div class="container">
 <div class="row">
-{% for product in products %}
-{% if product.id != 4 %}
+{% for review in reviews %}
+{% if review.id != 4 %}
+<a href="/reviews/{{review.id}}">
 <div class="col s4">
 <div class="card">
-<div class="card-content">{{product.name}}</div>
+<div class="card-content">{{review.name}}</div>
 </div>
 </div>
-{% elif product.id != 7%}
+</a>
+{% elif review.name != 7%}
+<a href="/reviews/{{review.id}}">
 <div class="col s4">
 <div class="card">
-<div class="card-content">{{product.name}}</div>
+<div class="card-content">{{review.name}}</div>
 </div>
 </div>
+</a>
 {% else %}
-</div>
+</div
 <div class="row">
+<a href="/reviews/{{review.id}}">
 <div class="col s4">
 <div class="card">
-<div class="card-content">{{product.name}}</div>
+<div class="card-content">{{review.name}}</div>
 </div>
 </div>
+</a>
 </div>
 {% endif %}
 {% endfor %}
