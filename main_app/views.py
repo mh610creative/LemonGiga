@@ -14,7 +14,6 @@ def products_index(request):
 def profile(request):
     return render(request, 'profile.html')
 
-
 def person(request):
     products = Gear.objects.all()
     comments = Comment.objects.all()
