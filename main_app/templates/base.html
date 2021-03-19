@@ -14,7 +14,7 @@
     <nav>
         <div class="nav-wrapper green darken-2">
         <ul>
-            <li><img class="responsive-image" width="59" height "59" src={% static 'images/logo.png' %}></li>
+            <li><a href="{% url 'splash' %}"><img class="responsive-image" width="59" height "59" src={% static 'images/logo.png' %}></a></li>
         </ul>
         <ul class="left">
             <li><a href="{% url 'splash' %}">Home</a></li>
@@ -22,6 +22,11 @@
             <li><a href="{% url 'profile' %}">Profile</a></li>
             <li><a href="{% url 'person' %}">Dashboard</a></li>
             <li><a href="{% url 'create_comment' %}">Comment</a></li>
+        </ul>
+        <ul class="right">
+            <li><a href="">Register</a></li>
+            <li><a href="">Log In</a></li>
+            <li><a href="">Logout</a></li>
         </ul>
         </div>
         </div>
