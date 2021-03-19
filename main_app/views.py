@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 
 from django.http import HttpResponse
 from .models import *
+from .forms import CommentForm
 
 # Define the home view
 def splash(request):
@@ -21,4 +22,16 @@ def person(request):
         'products': products,
         'comments': comments,
     }
+    
     return render(request, 'products/person.html', context)
+
+def createComment(request):
+    products = Gear.objects.all()
+    comments = Comment.objects.all()
+    form = CommentForm()
+    context = {
+        'products': products,
+        'comments': comments,
+        'form': form
+    }
+    return render(request, 'forms/comment_form.html', context)

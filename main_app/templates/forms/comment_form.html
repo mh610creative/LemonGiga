@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<form action="" methood = "POST">
+{% csrf_token %}
+{{comment.person}}
+{{comment.gear}}
+{{form.comment}}
+<input type="submit" name="Submit" value="Comment">
+</form>
+
+{% endblock %}
