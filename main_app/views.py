@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from .models import *
 from .forms import CommentForm
@@ -41,7 +41,11 @@ def createComment(request):
     return render(request, 'forms/comment_form.html', context)
 
 def register(request):
-    return HttpResponse('Register')
+    form = UserCreationForm(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+    return render(request, 'accounts/register.html', {'form': form})
 
 def login(request):
     return HttpResponse('Login')
