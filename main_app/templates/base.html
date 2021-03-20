@@ -18,15 +18,18 @@
         </ul>
         <ul class="left">
             <li><a href="{% url 'splash' %}">Home</a></li>
+        {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">All Product Reviews</a></li>
             <li><a href="{% url 'profile' %}">Profile</a></li>
             <li><a href="{% url 'person' %}">Dashboard</a></li>
             <li><a href="{% url 'create_comment' %}">Comment</a></li>
         </ul>
         <ul class="right">
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+        {% else %}
             <li><a href="{% url 'register' %}">Register</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
-            <li><a href="">Logout</a></li>
+        {% endif %}  
         </ul>
         </div>
         </div>
