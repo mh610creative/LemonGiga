@@ -23,12 +23,11 @@ def profile(request):
 
 def person(request):
     reviews = Gear.objects.all()
-    comments = Comment.objects.all()
+    comments = request.user.person.comment_set.all()
     context = {
         'reviews': reviews,
         'comments': comments,
     }
-    
     return render(request, 'reviews/person.html', context)
 
 def createComment(request):
