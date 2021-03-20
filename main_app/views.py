@@ -33,7 +33,6 @@ def person(request):
 def createComment(request):
     reviews = Gear.objects.all()
     comments = Comment.objects.all()
-    form = CommentForm()
     context = {
         'reviews': reviews,
         'comments': comments,
