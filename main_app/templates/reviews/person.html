@@ -2,7 +2,10 @@
 {% load static %}
 {% block content %}
 <div class="container">
-<div class="justify-content left">
+<h1>Dashboard</h1>
+</div>
+<div class="container">
+<div class="">
 {%for comment in comments %}
 <p>Welcome back, {{comment.person}}</p>
 <p>Join Date: {{comment.person.date_created.date}}</p>
@@ -10,8 +13,6 @@
 </div
 <div class="container">
 <div class="justify-content right">
-<h1>Dashboard</h1>
-
 <p>{{comment.person}} {{comment.gear}} {{comment.comment}}</p>
 {% endfor %}
 </div>
