@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
-from django.contrib.auth import login
+from django.contrib.auth import authenticate, login, logout
 from .models import *
 from .forms import *
 
@@ -47,7 +48,7 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request)
+            login(request, user)
             return redirect('person')
         else:
             error_message = 'Invalid sign up - try again'
@@ -55,23 +56,6 @@ def register(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/register.html', context)
 
-def login(request):
-    error_message = ''
-    if request.method == 'GET':
-        form = LoginForm(request.GET)
-        if form.is_valid():
-            login(request)
-            return redirect('person')
-        else:
-            error_message = 'Invalid sign up - try again'
-    form = LoginForm()
-    context = {'form': form, 'error_message': error_message}
-    return render(request, 'registration/login.html', context)
-
-
-
-
-        
 
 
 

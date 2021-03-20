@@ -128,6 +128,6 @@ STATICFILES_DIRS = [
 
 ]
 
-LOGIN_REDIRECT_URL= "/person/"
+LOGIN_REDIRECT_URL= "/reviews/user/"
 
 LOGOUT_REDIRECT_URL= "/"

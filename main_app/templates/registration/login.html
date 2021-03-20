@@ -7,8 +7,8 @@
 <div class="container">
     <div class="card">
         <div class="card-content">
-            <form method="GET" action="{% url 'login' %}">
-            {% csrf_token%}
+            <form method="post" action="">
+            {% csrf_token %}
             {{form.username.label}}
             {{form.username}}
             </br>
