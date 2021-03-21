@@ -26,7 +26,7 @@ class Gear(models.Model):
     description = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     rating = models.CharField(max_length=10, null=True)
-    profile_pic = models.ImageField(null=True, blank=True)
+    pack_shot = models.ImageField(null=True, blank=True)
 
 
     def __str__(self):
