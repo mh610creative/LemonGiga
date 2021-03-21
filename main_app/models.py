@@ -25,6 +25,9 @@ class Gear(models.Model):
     category = models.CharField(max_length=200, null=True, choices=CATEGORY)
     description = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
+    rating = models.CharField(max_length=10, null=True)
+    profile_pic = models.ImageField(null=True, blank=True)
+
 
     def __str__(self):
         return self.name

@@ -5,10 +5,10 @@
 <h1>{{review.name}}</h1>
 <div class="card">
     <div class="card-content">
-    <p>Price: {{review.price}}</p>
+    <p>Price: USD ${{review.price}}</p>
     <p>Category: {{review.category}}</p>
     <p>Review: {{review.description}}</p>
-    <p>Review Date: {{review.date_created}}</P>
+    <p>Review Date: {{review.date_created.date}}</P>
     </div>
 </div>
 {% endblock %}
