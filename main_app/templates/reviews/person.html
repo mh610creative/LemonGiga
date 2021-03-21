@@ -8,8 +8,11 @@
 <div class="">
 <p>Welcome back, {{person.name}}</p>
 <p>Join Date: {{person.date_created.date}}</p>
-<img class="profile-pic" src="{{request.user.person.profile_pic.url}}">
-
+{% if request.user.person.profile_pic %}
+<img class="profile-pic" width="200" height="200" src="{{ request.user.person.profile_pic.url }}">
+{% else %}
+<img class="profile-pic" width="100" height="100" src="{% static 'images/userAvatar.png' %}">
+{% endif %}
 </div>
 </div
 <div class="container">

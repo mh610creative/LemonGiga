@@ -24,3 +24,10 @@ footer {
     padding-top: 0;
     text-align: right;
 }
+
+.profile-pic{
+    max-width: 200px;
+    max-height:200px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
