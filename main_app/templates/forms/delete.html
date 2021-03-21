@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<p>Are you sure you want to delete comment?</p>
+<p>Do you really want to delete comment: {{comment.comment}}?</p>
 
 <form method="POST">
 {% csrf_token %}

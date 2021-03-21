@@ -95,6 +95,15 @@ def register(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/register.html', context)
 
+def delete_comment(request, comment_id):
+    comment = Comment.objects.get(id=comment_id)
+    if request.method == 'POST':
+        comment.delete()
+        return redirect('detail', review_id=comment.gear.id)
+    context = {'comment': comment}
+    return render(request,'forms/delete.html', context)
+    
+
 
 
 

@@ -21,6 +21,7 @@
     <p> {{comment.person}} {{comment.comment}}</p>
     {% if request.user.person == comment.person%}
     <p><a href="{% url 'edit_comment' comment_id=comment.id%}">Edit</a><p>
+    <p><a href="{% url 'delete_comment' comment_id=comment.id%}">Delete</a><p>
     {% endif %}
     {% endfor %}
     </div>
