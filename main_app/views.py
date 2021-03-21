@@ -11,7 +11,7 @@ def splash(request):
     return render(request, 'splash.html')
 
 def reviews_index(request):
-    reviews = Gear.objects.all()
+    reviews = Gear.objects.order_by('date_created')
     return render(request, 'reviews/index.html', {'reviews': reviews})
 
 def review_detail(request, review_id):
