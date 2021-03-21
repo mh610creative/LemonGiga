@@ -21,12 +21,14 @@ def review_detail(request, review_id):
 def profile(request):
     return render(request, 'profile.html')
 
-def person(request, Person):
+def person(request):
     reviews = Gear.objects.all()
     comments = request.user.person.comment_set.all()
+    person = request.user.person
     context = {
         'reviews': reviews,
         'comments': comments,
+        'person': person,
     }
     return render(request, 'reviews/person.html', context)
 

@@ -6,13 +6,14 @@
 </div>
 <div class="container">
 <div class="">
-{%for comment in comments %}
 <p>Welcome back, {{person.name}}</p>
 <p>Join Date: {{person.date_created.date}}</p>
+<img class="profile-pic" src="{{request.user.person.profile_pic.url}}">
 </div>
 </div
 <div class="container">
 <div class="justify-content right">
+{%for comment in comments %}
 <p>{{comment.person}} {{comment.gear}} {{comment.comment}}</p>
 {% endfor %}
 </div>
