@@ -131,3 +131,5 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL= "/reviews/user/"
 
 LOGOUT_REDIRECT_URL= "/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
