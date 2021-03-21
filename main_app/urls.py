@@ -15,5 +15,7 @@ urlpatterns = [
 
     path('create_comment/<int:review_id>', views.create_comment, name='create_comment'),
 
+    path('create_comment/<int:comment_id>/edit', views.edit_comment, name='edit_comment'),
+
     path('accounts/register/', views.register, name='register'),
 ]

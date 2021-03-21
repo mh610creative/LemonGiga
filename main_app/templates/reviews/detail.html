@@ -3,7 +3,6 @@
 {% block content %}
 
 <li><a href="{% url 'create_comment' review_id=review.id%}">Comment</a></li>
-
 <h1>{{review.name}}</h1>
 <div class="card">
     <div class="card-content">
@@ -19,8 +18,10 @@
     <div class="card-content">
     <h1> Comments </h1>
     {% for comment in review.comment_set.all %}
-
     <p> {{comment.person}} {{comment.comment}}</p>
+    {% if request.user.person == comment.person%}
+    <p><a href="{% url 'edit_comment' comment_id=comment.id%}">Edit</a><p>
+    {% endif %}
     {% endfor %}
     </div>
 </div>

@@ -56,7 +56,26 @@ def create_comment(request, review_id):
             print(form.errors)
     context = {
         'review': review,
-        'form': form
+        'form': form,
+        'button': 'Create'
+    }
+    return render(request, 'forms/comment_form.html', context)
+
+@login_required
+def edit_comment(request, comment_id):
+    comment = Comment.objects.get(id=comment_id)
+    form = CommentForm(instance=comment)
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            comment = form.save()
+            return redirect('detail', review_id=comment.gear.id)
+        else:
+            print(form.errors)
+    context = {
+        'review': comment.gear,
+        'form': form,
+        'button': 'Edit'
     }
     return render(request, 'forms/comment_form.html', context)
 
