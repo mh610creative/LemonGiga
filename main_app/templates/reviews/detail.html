@@ -5,10 +5,12 @@
 <h1>{{review.name}}</h1>
 <div class="card">
     <div class="card-content">
-    <p>Price: USD ${{review.price}}</p>
-    <p>Category: {{review.category}}</p>
-    <p>Review: {{review.description}}</p>
-    <p>Review Date: {{review.date_created.date}}</P>
+        <p>Price: USD ${{review.price}}</p>
+        <p>Category: {{review.category}}</p>
+        <p>Rating: {{review.rating}}</P>
+        <p>Review: {{review.description}}</p>
+        <p>Review Date: {{review.date_created.date}}</P>
+        <img height="100" width="100" src="{{review.pack_shot.url}}">
     </div>
 </div>
 {% endblock %}
