@@ -13,7 +13,7 @@ urlpatterns = [
 
     path('reviews/user/', views.person, name='person'),
 
-    path('create_comment/', views.create_comment, name='create_comment'),
+    path('create_comment/<int:review_id>', views.create_comment, name='create_comment'),
 
     path('accounts/register/', views.register, name='register'),
 ]

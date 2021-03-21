@@ -2,6 +2,8 @@
 {% load static %}
 {% block content %}
 
+<li><a href="{% url 'create_comment' review_id=review.id%}">Comment</a></li>
+
 <h1>{{review.name}}</h1>
 <div class="card">
     <div class="card-content">
@@ -11,6 +13,15 @@
         <p>Review: {{review.description}}</p>
         <p>Review Date: {{review.date_created.date}}</P>
         <img height="100" width="100" src="{{review.pack_shot.url}}">
+    </div>
+</div>
+<div class="container">
+    <div class="card-content">
+    <h1> Comments </h1>
+    {% for comment in review.comment_set.all %}
+
+    <p> {{comment.person}} {{comment.comment}}</p>
+    {% endfor %}
     </div>
 </div>
 {% endblock %}

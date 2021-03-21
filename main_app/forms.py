@@ -8,7 +8,7 @@ class CommentForm(ModelForm):
 
     class Meta:
         model = Comment
-        fields = ['person', 'gear','comment']
+        fields = ['comment']
 
 class CreateUserForm(UserCreationForm):
     

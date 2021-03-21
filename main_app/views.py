@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
 
@@ -39,13 +40,22 @@ def person(request):
     }
     return render(request, 'reviews/person.html', context)
 
-def create_comment(request):
-    reviews = Gear.objects.all()
-    comments = Comment.objects.all()
+@login_required
+def create_comment(request, review_id):
+    review = Gear.objects.get(id=review_id)
     form = CommentForm()
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.person = request.user.person
+            comment.gear = review
+            comment.save()
+            return redirect('detail', review_id=review_id)
+        else:
+            print(form.errors)
     context = {
-        'reviews': reviews,
-        'comments': comments,
+        'review': review,
         'form': form
     }
     return render(request, 'forms/comment_form.html', context)
