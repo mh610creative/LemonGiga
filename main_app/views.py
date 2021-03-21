@@ -47,7 +47,7 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            new_person = Person(user=user, name=user.username, email=user.email)
+            new_person = Person(user=user, name=user.username, email=user.email, date_created=user.date_joined)
             new_person.save()
             login(request, user)
             return redirect('person')
