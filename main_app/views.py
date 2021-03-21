@@ -30,9 +30,10 @@ def person(request):
     }
     return render(request, 'reviews/person.html', context)
 
-def createComment(request):
+def create_comment(request):
     reviews = Gear.objects.all()
     comments = Comment.objects.all()
+    form = CommentForm()
     context = {
         'reviews': reviews,
         'comments': comments,
@@ -46,6 +47,8 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             user = form.save()
+            new_person = Person(user=user, name=user.username, email=user.email)
+            new_person.save()
             login(request, user)
             return redirect('person')
         else:
