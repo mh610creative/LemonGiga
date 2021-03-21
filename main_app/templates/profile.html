@@ -2,4 +2,28 @@
 {% load static %}
 {% block content %}
 <h1>Profile</h1>
+<div class="container">
+<div class="card">
+<div class="card-content">
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+	{{form.name.label}}
+    {{form.name}}
+    </br>
+    </br>
+    {{form.email.label}}
+    {{form.email}}
+    </br>
+    </br>
+    {{form.profile_pic.label}}
+    </br>
+    </br>
+    {{form.profile_pic}}
+    </br>
+    </br>
+<input class="btn btn-primary" type="submit" name="Update Information">
+</form>
+</div>
+</div>
+</div>
 {% endblock %}

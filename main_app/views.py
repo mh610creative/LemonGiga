@@ -19,7 +19,14 @@ def review_detail(request, review_id):
     return render(request, 'reviews/detail.html', {'review': review })
 
 def profile(request):
-    return render(request, 'profile.html')
+    person = request.user.person
+    form = PersonForm(instance=person)
+    if request.method == 'POST':
+        form = PersonForm(request.POST, request.FILES,instance=person)
+        if form.is_valid():
+            form.save()
+    context = {'form':form}
+    return render(request, 'profile.html', context)
 
 def person(request):
     reviews = Gear.objects.all()

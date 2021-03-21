@@ -11,7 +11,7 @@ class CommentForm(ModelForm):
         fields = ['person', 'gear','comment']
 
 class CreateUserForm(UserCreationForm):
-
+    
     class Meta:
         model = User
         fields = ['username', 'email']
@@ -21,3 +21,11 @@ class LoginForm(ModelForm):
     class Meta:
         model = User
         fields = ['username', 'password']
+
+class PersonForm(ModelForm):
+    
+    class Meta:
+        model = Person
+        fields = '__all__'
+        exclude = ['user']
+        
