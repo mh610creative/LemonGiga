@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<li><a href="{% url 'create_comment' review_id=review.id%}">Comment</a></li>
+
 <h1>{{review.name}}</h1>
 <div class="card">
     <div class="card-content">
@@ -11,17 +11,18 @@
         <p>Rating: {{review.rating}}</P>
         <p>Review: {{review.description}}</p>
         <p>Review Date: {{review.date_created.date}}</P>
-        <img height="100" width="100" src="{{review.pack_shot.url}}">
+        <img height="100" width="100" src="{{review.pack_shot.url}}"><br>
+        <a href="{% url 'create_comment' review_id=review.id%}"><button class="btn btn-small purple" name="" value="">Comment</button></a>
     </div>
 </div>
 <div class="container">
     <div class="card-content">
     <h1> Comments </h1>
     {% for comment in review.comment_set.all %}
-    <p> {{comment.person}} {{comment.comment}}</p>
-    {% if request.user.person == comment.person%}
-    <p><a href="{% url 'edit_comment' comment_id=comment.id%}">Edit</a><p>
-    <p><a href="{% url 'delete_comment' comment_id=comment.id%}">Delete</a><p>
+    {% if request.user.person == comment.person%} 
+    <p>{{comment.person}} {{comment.comment}} <a href="{% url 'edit_comment' comment_id=comment.id%}"><button class="btn btn-small yellow darken-2" name="" value="">Edit</button></a> <a href="{% url 'delete_comment' comment_id=comment.id%}"><button class="btn btn-small red darken-2" name="" value="">Delete</button></a></p>
+    {% else %}
+    <p>{{comment.person}} {{comment.comment}}</p>
     {% endif %}
     {% endfor %}
     </div>
