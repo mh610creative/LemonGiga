@@ -4,12 +4,12 @@
 <div class="container">
     <div class="card">
         <div class="card-content">
-        <h1>{{review.name}}</h1>
+        <h3>{{review.name}}</h3>
             <form action="" method="POST">
                 {% csrf_token %}
-                {{form.comment.label}}
+                <h5>{{form.comment.label}}</h5>
                 {{form.comment}}
-                <input type="submit" name="Submit" value="{{button}} Comment">
+                <button class="btn waves-effect waves-light" type="submit" name="action" value="">{{button}} Comment</button>
                 </form>
         </div>
     </div>
