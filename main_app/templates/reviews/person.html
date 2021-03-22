@@ -9,7 +9,7 @@
 <p>Welcome back, {{person.name}}</p>
 <p>Join Date: {{person.date_created.date}}</p>
 {% if request.user.person.profile_pic %}
-<img class="profile-pic" width="200" height="200" src="{{ request.user.person.profile_pic.url }}">
+<img class="profile-pic" width="180" height="260" src="{{ request.user.person.profile_pic.url }}">
 {% else %}
 <img class="" width="120" height="120" src="{% static 'images/userAvatar.png' %}">
 {% endif %}

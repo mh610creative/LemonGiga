@@ -20,9 +20,9 @@
     <h1> Comments </h1>
     {% for comment in review.comment_set.all %}
     {% if request.user.person == comment.person%} 
-    <p>{{comment.person}} {{comment.comment}} <a href="{% url 'edit_comment' comment_id=comment.id%}"><button class="btn btn-small yellow darken-2" name="" value="">Edit</button></a> <a href="{% url 'delete_comment' comment_id=comment.id%}"><button class="btn btn-small red darken-2" name="" value="">Delete</button></a></p>
+    <h5>{{comment.person}} {{comment.comment}} <a href="{% url 'edit_comment' comment_id=comment.id%}"><button class="btn btn-small yellow darken-2" name="" value="">Edit</button></a> <a href="{% url 'delete_comment' comment_id=comment.id%}"><button class="btn btn-small red darken-2" name="" value="">Delete</button></a></h5>
     {% else %}
-    <p>{{comment.person}} {{comment.comment}}</p>
+    <h5>{{comment.person}} {{comment.comment}}</h5>
     {% endif %}
     {% endfor %}
     </div>

@@ -2,14 +2,14 @@
 {% load static %}
 {% block content %}
 
-<p>Do you really want to delete comment: {{comment.comment}}?</p>
+<h5>Do you really want to delete your comment: {{comment.comment}}?</h5>
 
 <form method="POST">
 {% csrf_token %}
 
-        <a href="">Cancel</a>
+        <a href=""><button class="btn btn-small red" type="submit" name="Cancel">Cancel</button></a>
 
-        <input type="submit" name="Confirm">
+        <button class="btn btn-small green" type="submit" name="Confirm">Confirm</button>
 </form>
 
 {% endblock %}
