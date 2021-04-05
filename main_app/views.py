@@ -8,17 +8,22 @@ from .models import *
 from .forms import *
 
 # Define the home view
+@login_required
 def splash(request):
     return render(request, 'splash.html')
 
+@login_required
 def reviews_index(request):
     reviews = Gear.objects.order_by('date_created')
     return render(request, 'reviews/index.html', {'reviews': reviews})
 
+@login_required
 def review_detail(request, review_id):
     review = Gear.objects.get(id=review_id)
-    return render(request, 'reviews/detail.html', {'review': review })
+    person = Person.objects.all()
+    return render(request, 'reviews/detail.html', {'review': review, 'person': person})
 
+@login_required
 def profile(request):
     person = request.user.person
     form = PersonForm(instance=person)
@@ -29,6 +34,7 @@ def profile(request):
     context = {'form':form}
     return render(request, 'profile.html', context)
 
+@login_required
 def person(request):
     reviews = Gear.objects.all()
     comments = request.user.person.comment_set.all()
