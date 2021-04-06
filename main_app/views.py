@@ -9,8 +9,8 @@ from .forms import *
 
 # Define the home view
 def splash(request):
-    reviews = Gear.objects.order_by('date_created')
-    return render(request, 'splash.html', {'reviews': reviews})
+    reviews = Gear.objects.order_by('-date_created')
+    return render(request, 'splash.html', {'reviews': reviews[:3]})
 
 @login_required
 def reviews_index(request):
