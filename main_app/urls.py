@@ -11,7 +11,7 @@ urlpatterns = [
 
     path('reviews/<int:review_id>/', views.review_detail, name='detail'),
 
-    path('reviews/user/', views.person, name='person'),
+    path('user/', views.person, name='person'),
 
     path('create_comment/<int:review_id>/', views.create_comment, name='create_comment'),
 

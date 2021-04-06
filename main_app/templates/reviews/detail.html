@@ -8,7 +8,8 @@
     <div class="card-content">
         <p>Price: USD ${{review.price}}</p>
         <p>Category: {{review.category}}</p>
-        <p>Rating: {{review.rating}}</P>
+        
+        <p>Rating: {{review.rating}} &#9733; </p>
         <p>Review: {{review.description}}</p>
         <p>Review Date: {{review.date_created.date}}</P>
         <img height="100" width="100" src="{{review.pack_shot.url}}"><br>
@@ -20,9 +21,9 @@
     <h1> Comments </h1>
     {% for comment in review.comment_set.all %}
     {% if request.user.person == comment.person %} 
-        <h5><img class="profile-pic" width="20" height="20" src="{{comment.person.profile_pic.url}}"> {{comment.person}} {{comment.comment}} <a href="{% url 'edit_comment' comment_id=comment.id%}"><button class="btn btn-small yellow darken-2" name="" value="">Edit</button></a> <a href="{% url 'delete_comment' comment_id=comment.id%}"><button class="btn btn-small red darken-2" name="" value="">Delete</button></a></h5>
+        <h5><img class="profile-pic" width="40" height="40" src="{{comment.person.profile_pic.url}}"> {{comment.person}} {{comment.comment}} <a href="{% url 'edit_comment' comment_id=comment.id%}"><button class="btn btn-small yellow darken-2" name="" value="">Edit</button></a> <a href="{% url 'delete_comment' comment_id=comment.id%}"><button class="btn btn-small red darken-2" name="" value="">Delete</button></a></h5>
     {% else %}
-    <h5><img class="profile-pic" width="20" height="20" src="{{comment.person.profile_pic.url}}"> {{comment.person}} {{comment.comment}}</h5>
+    <h5><img class="profile-pic" width="40" height="40" src="{{comment.person.profile_pic.url}}"> {{comment.person}} {{comment.comment}}</h5>
     {% endif %}
     {% endfor %}
     </div>

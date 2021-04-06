@@ -23,7 +23,7 @@ class Gear(models.Model):
     name = models.CharField(max_length=200, null=True)
     price = models.FloatField(null=True)
     category = models.CharField(max_length=200, null=True, choices=CATEGORY)
-    description = models.CharField(max_length=200, null=True)
+    description = models.CharField(max_length=500, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     rating = models.CharField(max_length=10, null=True)
     pack_shot = models.ImageField(null=True, blank=True)
