@@ -18,8 +18,8 @@ def reviews_index(request):
     return render(request, 'reviews/index.html', {'reviews': reviews})
 
 @login_required
-def review_detail(request, review_id):
-    review = Gear.objects.get(id=review_id)
+def review_detail(request, slug):
+    review = Gear.objects.get(slug=slug)
     person = Person.objects.all()
     return render(request, 'reviews/detail.html', {'review': review, 'person': person})
 
