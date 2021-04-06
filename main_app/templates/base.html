@@ -21,7 +21,7 @@
         {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">All Product Reviews</a></li>
             <li><a href="{% url 'profile' %}">Profile</a></li>
-            <li><a href="{% url 'person' %}">Dashboard</a></li>
+            <li><a href="{% url 'person' slug=request.user.person.slug %}">Dashboard</a></li>
         </ul>
         <ul class="right">
             <li><a href="{% url 'logout' %}">Log Out</a></li>

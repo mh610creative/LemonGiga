@@ -9,9 +9,11 @@ urlpatterns = [
 
     path('reviews/', views.reviews_index, name='index'),
 
+    path('reviews/user/', views.login_redirectview, name='redirect'),
+
     path('reviews/<slug:slug>/', views.review_detail, name='detail'),
 
-    path('user/', views.person, name='person'),
+    path('user/<slug:slug>/', views.person, name='person'),
 
     path('create_comment/<int:review_id>/', views.create_comment, name='create_comment'),
 

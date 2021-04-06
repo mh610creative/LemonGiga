@@ -6,13 +6,20 @@ from django.template.defaultfilters import slugify
 
 class Person(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
-    name = models.CharField(max_length=200, null=True)
+    name = models.CharField(max_length=200, unique=True)
     email = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True)
     profile_pic = models.ImageField(null=True, blank=True)
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs): 
+        if not self.slug:
+            slug = slugify(self.name)
+            self.slug = slug[:50]
+        return super().save(*args, **kwargs)
 
 class Gear(models.Model):
     CATEGORY = (

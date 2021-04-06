@@ -5,11 +5,9 @@ from django.template.defaultfilters import slugify
 from django.db import migrations
 
 def populate_slug(apps, schema_editor):
-    print('populating')
     Gear = apps.get_model('main_app', 'Gear')
 
     gears = Gear.objects.all()
-    print('gears', gears)
     for gear in gears:
         slug = slugify(gear.name)
         gear.slug = slug[:50]

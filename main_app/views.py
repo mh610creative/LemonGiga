@@ -35,10 +35,10 @@ def profile(request):
     return render(request, 'profile.html', context)
 
 @login_required
-def person(request):
+def person(request, slug):
     reviews = Gear.objects.all()
-    comments = request.user.person.comment_set.all()
-    person = request.user.person
+    person = Person.objects.get(slug=slug)
+    comments = person.comment_set.all()
     context = {
         'reviews': reviews,
         'comments': comments,
@@ -57,7 +57,7 @@ def create_comment(request, review_id):
             comment.person = request.user.person
             comment.gear = review
             comment.save()
-            return redirect('detail', review_id=review_id)
+            return redirect('detail', slug=review.slug)
         else:
             print(form.errors)
     context = {
@@ -75,7 +75,7 @@ def edit_comment(request, comment_id):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             comment = form.save()
-            return redirect('detail', review_id=comment.gear.id)
+            return redirect('detail', slug=comment.gear.slug)
         else:
             print(form.errors)
     context = {
@@ -94,21 +94,27 @@ def register(request):
             new_person = Person(user=user, name=user.username, email=user.email, date_created=user.date_joined)
             new_person.save()
             login(request, user)
-            return redirect('person')
+            return redirect('redirect')
         else:
             error_message = 'Invalid sign up - try again'
     form = CreateUserForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/register.html', context)
 
+@login_required
 def delete_comment(request, comment_id):
     comment = Comment.objects.get(id=comment_id)
     if request.method == 'POST':
         comment.delete()
-        return redirect('detail', review_id=comment.gear.id)
+        return redirect('detail', slug=comment.gear.slug)
     context = {'comment': comment}
     return render(request,'forms/delete.html', context)
-    
+
+@login_required
+def login_redirectview(request):
+    return redirect('person', slug=request.user.person.slug)
+
+
 
 
 
