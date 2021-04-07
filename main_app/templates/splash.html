@@ -4,19 +4,19 @@
 <div class="container">
 <h1 class="center">LemonGiga</h1>
 <h3 class="center">The most obscure tech media website <br>on the internet.</h3>
-</div>
-<div class="container">
-    <div class="row">
+<div class="row">
     {% for review in reviews %}
-        <div class="col s12 m4">
+        <div class="col s4 m4 l4">
             <div class="card">
                 <div class="card-image">
-                    <img src="{% static review.pack_shot %}">
-                    <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                    <img height="33%" width="33%" src="{% static review.pack_shot %}">
                 </div>
             <div class="card-content">
-                <span class="card-title">{{review.name}}</span>
-                <p>I am a very simple card.</p>
+            <span class="card-title">{{review.name|truncatewords:"6"}}</span>
+                <p>{{review.description|truncatewords:"9"}}</p>
+            </div>
+            <div class="card-action">
+            <a href="#">This is a link</a>
             </div>
         </div>
     </div>
