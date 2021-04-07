@@ -8,10 +8,10 @@
 <div class="container">
     <div class="row">
     {% for review in reviews %}
-        <div class="col s12 m6">
+        <div class="col s12 m4">
             <div class="card">
                 <div class="card-image">
-                    <img src="{% static 'hulu.jpeg' %}">
+                    <img src="{% static review.pack_shot %}">
                     <span class="card-title">{{review.name}}</span>
                     <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                 </div>
@@ -19,8 +19,8 @@
                 <p>I am a very simple card.</p>
             </div>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
 </div>
 {% endblock %}
