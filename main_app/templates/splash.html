@@ -2,26 +2,28 @@
 {% load static %}
 {% block content %}
 <div class="container">
-<h1 class="center">LemonGiga</h1>
-<h3 class="center">The most obscure tech media website <br>on the internet.</h3>
-<div class="row">
-    {% for review in reviews %}
-        <div class="col s4 m4 l4">
-            <div class="card">
-                <div class="card-image">
-                    <img class="activator" height="33%" width="33%" src="{% static review.pack_shot %}">
-                </div>
-            <div class="card-content">
-                <span class="card-title activator">{{review.name|truncatewords:"6"}}</span>
-                <p><a href="{% url 'detail' review.slug %}">More</a></p>
-            </div>
-            <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                <p>{{review.description|truncatewords:"9"}}</p>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
+    <h1 class="center">LemonGiga</h1>
+    <h3 class="center">The most obscure tech media website <br>on the internet.</h3>
 </div>
+<div class="container">
+    <div class="row">
+        {% for review in reviews %}
+            <div class="col s4 m4 l4">
+                <div class="card">
+                    <div class="card-image">
+                        <img class="activator" height="25%" width="45%" src="{% static review.pack_shot %}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator">{{review.name|truncatewords:"6"}}</span>
+                        <p><a href="{% url 'detail' review.slug %}">More</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                        <p>{{review.description|truncatewords:"9"}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

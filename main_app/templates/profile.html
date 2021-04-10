@@ -7,18 +7,22 @@
 <div class="card-content">
 <form method="POST" action="" enctype="multipart/form-data">
     {% csrf_token %}
+    {{form.non_field_errors}}
 	{{form.name.label}}
     {{form.name}}
+    {{form.name.errors}}
     </br>
     </br>
     {{form.email.label}}
     {{form.email}}
+    {{form.email.errors}}
     </br>
     </br>
     {{form.profile_pic.label}}
     </br>
     </br>
     {{form.profile_pic}}
+    {{form.profile_pic.errors}}
     </br>
     </br>
 <input class="btn btn-primary" type="submit" name="Update Information">

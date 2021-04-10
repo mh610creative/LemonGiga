@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
+from django.templatetags.static import static
 
 # Create your models here.
 
@@ -20,6 +21,12 @@ class Person(models.Model):
             slug = slugify(self.name)
             self.slug = slug[:50]
         return super().save(*args, **kwargs)
+
+    def getprofilepic_url(self):
+        if self.profile_pic and self.profile_pic.url:
+            return self.profile_pic.url
+        else:
+            return static('images/userAvatar.png')
 
 class Gear(models.Model):
     CATEGORY = (
