@@ -16,6 +16,7 @@
                     <div class="card-content">
                         <span class="card-title">{{review.name|truncatewords:"6"}}</span>
                         <p>{{review.description|truncatewords:"15"}}</p>
+                    <br>
                     </div>
                     <div class="card-action">
                         <p><a href="{% url 'detail' review.slug %}">More</a></p>
