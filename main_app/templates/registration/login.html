@@ -7,9 +7,8 @@
 <div class="container">
     <div class="card">
         <div class="card-content">
-            <form method="post" action="">
+            <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
-            {{form.non_field_errors}}
             {{form.username.label}}
             {{form.username}}
             </br>
@@ -18,7 +17,7 @@
             {{form.password}}
             </br>
             </br>
-            <input class="btn" type="submit" name="Create User" value="Login">
+            <input class="btn btn-default buttonfont" type="submit" name="Create User" value="Login">
             <input type="hidden" name="next" value="{{next}}">
             </form>
         </div>

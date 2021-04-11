@@ -2,24 +2,32 @@
 {% load static %}
 {% block content %}
 <div class="container">
-<h1>Dashboard</h1>
-</div>
-<div class="container">
-<div class="">
-<p>Welcome back, {{person.name}}</p>
-<p>Join Date: {{person.date_created.date}}</p>
-{% if request.user.person.profile_pic %}
-<img class="profile-pic" width="180" height="260" src="{{ request.user.person.profile_pic.url }}">
-{% else %}
-<img class="" width="120" height="120" src="{% static 'images/userAvatar.png' %}">
-{% endif %}
-</div>
-</div
-<div class="container">
-<div class="justify-content right">
-{%for comment in comments %}
-<p>{{comment.person}} {{comment.gear}} {{comment.comment}}</p>
-{% endfor %}
-</div>
+    <h3>{{person.name}}</h3>
+    <div class="row">
+        <div class="col s6 m6 l6">
+            <h6>Join Date: {{person.date_created.date}}</h6>
+            <br>
+            {% if request.user.person.profile_pic %}
+                <img class="profile-pic" width="180" height="260" src="{{ request.user.person.profile_pic.url }}">
+            {% else %}
+                <img class="" width="120" height="120" src="{% static 'images/userAvatar.png' %}">
+            {% endif %}
+        </div>
+        <div class="col s6 m6 l6">  
+        <h4>Comment History</h4>
+            <table>
+                {%for comment in comments %}
+                <tr>
+                    <th>Review</th>
+                    <th>Comment</th>
+                </tr>
+                <tr>
+                    <td>{{comment.gear}}</td>
+                    <td>{{comment.comment}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
 </div>
 {% endblock %}
