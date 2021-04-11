@@ -7,7 +7,7 @@
                 {% for review in reviews %}
                 {% if review.id != 4 %}
                 <a href="{% url 'detail' review.slug %}">
-                    <div class="col s4">
+                    <div class="col s6 m6 l6">
                         <div class="card small">
                             <div class="card-image">
                                 <img src="{% static review.pack_shot %}">
@@ -20,7 +20,7 @@
                 </a>
 {% elif review.id != 7%}
                 <a href="{% url 'detail' review.slug %}">
-                    <div class="col s4">
+                    <div class="col s6 m6 l6">
                         <div class="card small">
                             <div class="card-image">
                                 <img src="{% static review.pack_shot %}">
@@ -35,7 +35,7 @@
             </div>
             <div class="row">
                 <a href="{% url 'detail' review.slug %}">
-                    <div class="col s4">
+                    <div class="col s6 m6 l6">
                         <div class="card small">
                             <div class="card-image">
                                 <img src="{% static review.pack_shot %}">
