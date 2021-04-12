@@ -16,11 +16,11 @@
         <div class="col s6 m6 l6">  
         <h4>Comment History</h4>
             <table>
-                {%for comment in comments %}
                 <tr>
                     <th>Review</th>
                     <th>Comment</th>
                 </tr>
+                {%for comment in comments %}
                 <tr>
                     <td>{{comment.gear}}</td>
                     <td>{{comment.comment}}</td>
