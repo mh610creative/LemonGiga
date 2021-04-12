@@ -54,4 +54,4 @@ This a is Django Python app using a Postgres SQL database. The core functionalit
 
 #### ERD
 
-![erd](static/erd.png)
+![erd](static/ERD.png)
