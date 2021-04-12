@@ -34,7 +34,7 @@ This a is Django Python app using a Postgres SQL database. The core functionalit
 - As a user, I want to be able to update my profile photo.
 - As a user, I want to see my profile photo next to my posts.
 
-### INSTALLATION - FOR LOCAL HOSTING
+#### INSTALLATION - FOR LOCAL HOSTING
 1. Please read the below list of required modules and verify if they are installed.
   - Use NPM to install missing modules. 
 2. Create an `.env' file and activate it.
@@ -44,7 +44,7 @@ This a is Django Python app using a Postgres SQL database. The core functionalit
 6. Initialize the server: ```python3 manage.py runserver```
 7. Open a browser window and access local server URL: ```localhost:8000```
 
-#### LIST OF REQUIRED NODE MODULES 
+#### LIST OF REQUIRED TECH
 * Django 3.1.7
 * Pillow 8.1.2
 * Psycopg2 2.8.6
@@ -52,3 +52,6 @@ This a is Django Python app using a Postgres SQL database. The core functionalit
 * Sqlparse 0.4.1
 * Whitenoise 5.2.0
 
+#### ERD
+
+![erd](static/erd.png)
